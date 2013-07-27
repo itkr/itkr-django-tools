@@ -12,3 +12,27 @@ class DateTimeFieldMixin(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+class UserHasManyModelMixin(models.Model):
+
+    class Meta:
+        abstract = True
+
+    user_id = models.IntegerField()
+
+    @classmethod
+    def get_by_user_id(cls, user_id):
+        return list(cls.objects.filter(user_id=user_id))
+
+
+class GroupHasManyModelMixin(models.Model):
+
+    class Meta:
+        abstract = True
+
+    group_id = models.IntegerField()
+
+    @classmethod
+    def get_by_group_id(cls, group_id):
+        return list(cls.objects.filter(group_id=group_id))
