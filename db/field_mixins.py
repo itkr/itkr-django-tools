@@ -4,8 +4,7 @@ from django.db import models
 
 class DateTimeFieldMixin(models.Model):
     """
-    作成日付・更新日付のフィールドを追加するMixin
-    日付の更新は自動
+    Mixin which adds the field of creation date and update date
     """
 
     class Meta:
