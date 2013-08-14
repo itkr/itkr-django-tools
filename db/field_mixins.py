@@ -51,7 +51,7 @@ class UserHasOneModelMixin(models.Model):
 
     @classmethod
     def get_or_create(cls, **kwargs):
-        return cls.objects.get_or_create(**kwargs)
+        return cls.objects.get_or_create(**kwargs)[0]
 
     @classmethod
     def get_for_update(cls, user_id):
@@ -71,7 +71,7 @@ class GroupHasOneModelMixin(models.Model):
 
     @classmethod
     def get_or_create(cls, **kwargs):
-        return cls.objects.get_or_create(**kwargs)
+        return cls.objects.get_or_create(**kwargs)[0]
 
     @classmethod
     def get_for_update(cls, group_id):
