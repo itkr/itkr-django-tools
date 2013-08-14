@@ -5,4 +5,6 @@ from field_mixins import (
     DateTimeFieldMixin,
     UserHasManyModelMixin,
     GroupHasManyModelMixin,
+    UserHasOneModelMixin,
+    GroupHasOneModelMixin,
 )
