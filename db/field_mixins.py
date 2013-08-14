@@ -36,3 +36,38 @@ class GroupHasManyModelMixin(models.Model):
     @classmethod
     def get_by_group_id(cls, group_id):
         return list(cls.objects.filter(group_id=group_id))
+
+
+class UserHasOneModelMixin(models.Model):
+
+    class Meta:
+        abstract = True
+
+    user_id = models.IntegerField()
+
+    @classmethod
+    def get_by_user_id(cls, user_id):
+        return cls.objects.get(user_id=user_id)
+
+
+class GroupHasOneModelMixin(models.Model):
+
+    class Meta:
+        abstract = True
+
+    user_id = models.IntegerField()
+
+    @classmethod
+    def get_by_group_id(cls, group_id):
+        return cls.objects.get(group_id=group_id)
+
+
+
+
+
+
+
+
+
+
+
