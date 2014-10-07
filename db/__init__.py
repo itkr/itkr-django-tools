@@ -8,3 +8,6 @@ from field_mixins import (
     UserHasOneModelMixin,
     GroupHasOneModelMixin,
 )
+from logical_delete import (
+    LogicalDeleteMixin,
+)
