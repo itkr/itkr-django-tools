@@ -84,12 +84,3 @@ class GroupHasOneModelMixin(models.Model):
     @classmethod
     def get_for_update(cls, group_id):
         return cls.objects.select_for_update().get(group_id=group_id)
-
-
-
-
-
-
-
-
-

@@ -5,12 +5,12 @@ from django.db import models
 class MasterModel(models.Model):
 
     class Meta:
-        abstract=True
-    
+        abstract = True
+
     @classmethod
     def get(cls, object_id):
         return cls.objects.get(id=object_id)
-    
+
     @classmethod
     def get_all(cls):
         return cls.objects.all()
