@@ -14,7 +14,7 @@ class DateTimeFieldMixin(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class UserHasManyModelMixin(models.Model):
+class UserHasManyModelMixin(models.Model, DateTimeFieldMixin):
 
     class Meta:
         abstract = True
@@ -30,7 +30,7 @@ class UserHasManyModelMixin(models.Model):
         return cls.objects.select_for_update().get(user_id=user_id, **kwargs)
 
 
-class GroupHasManyModelMixin(models.Model):
+class GroupHasManyModelMixin(models.Model, DateTimeFieldMixin):
 
     class Meta:
         abstract = True
