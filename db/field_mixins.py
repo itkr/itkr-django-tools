@@ -19,7 +19,7 @@ class UserHasManyModelMixin(models.Model, DateTimeFieldMixin):
     class Meta:
         abstract = True
 
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_user_id(cls, user_id):
@@ -35,7 +35,7 @@ class GroupHasManyModelMixin(models.Model, DateTimeFieldMixin):
     class Meta:
         abstract = True
 
-    group_id = models.IntegerField()
+    group_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_group_id(cls, group_id):
@@ -51,7 +51,7 @@ class UserHasOneModelMixin(models.Model):
     class Meta:
         abstract = True
 
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_user_id(cls, user_id):
@@ -71,7 +71,7 @@ class GroupHasOneModelMixin(models.Model):
     class Meta:
         abstract = True
 
-    group_id = models.IntegerField()
+    group_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_group_id(cls, group_id):
