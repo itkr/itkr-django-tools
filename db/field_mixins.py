@@ -23,7 +23,7 @@ class UserHasManyModelMixin(models.Model):
 
     @classmethod
     def get_by_user_id(cls, user_id):
-        return list(cls.objects.filter(user_id=user_id))
+        return cls.objects.filter(user_id=user_id)
 
     @classmethod
     def get_for_update(cls, user_id, **kwargs):
@@ -43,7 +43,7 @@ class GroupHasManyModelMixin(models.Model):
 
     @classmethod
     def get_by_group_id(cls, group_id):
-        return list(cls.objects.filter(group_id=group_id))
+        return cls.objects.filter(group_id=group_id)
 
     @classmethod
     def get_for_update(cls, group_id, **kwargs):
