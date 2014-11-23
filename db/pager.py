@@ -57,6 +57,3 @@ class PagerMixin(models.Model):
     @classmethod
     def get_pager(cls, *args, **kwargs):
         return _Pager(cls, *args, **kwargs)
-
-
-

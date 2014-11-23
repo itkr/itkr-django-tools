@@ -19,15 +19,19 @@ class UserHasManyModelMixin(models.Model):
     class Meta:
         abstract = True
 
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_user_id(cls, user_id):
-        return list(cls.objects.filter(user_id=user_id))
+        return cls.objects.filter(user_id=user_id)
 
     @classmethod
     def get_for_update(cls, user_id, **kwargs):
         return cls.objects.select_for_update().get(user_id=user_id, **kwargs)
+
+    @classmethod
+    def create(cls, *args, **kwargs):
+        return cls.objects.create(*args, **kwargs)
 
 
 class GroupHasManyModelMixin(models.Model):
@@ -35,15 +39,19 @@ class GroupHasManyModelMixin(models.Model):
     class Meta:
         abstract = True
 
-    group_id = models.IntegerField()
+    group_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_group_id(cls, group_id):
-        return list(cls.objects.filter(group_id=group_id))
+        return cls.objects.filter(group_id=group_id)
 
     @classmethod
     def get_for_update(cls, group_id, **kwargs):
         return cls.objects.select_for_update().get(group_id=group_id, **kwargs)
+
+    @classmethod
+    def create(cls, *args, **kwargs):
+        return cls.objects.create(*args, **kwargs)
 
 
 class UserHasOneModelMixin(models.Model):
@@ -51,7 +59,7 @@ class UserHasOneModelMixin(models.Model):
     class Meta:
         abstract = True
 
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_user_id(cls, user_id):
@@ -71,7 +79,7 @@ class GroupHasOneModelMixin(models.Model):
     class Meta:
         abstract = True
 
-    group_id = models.IntegerField()
+    group_id = models.IntegerField(null=False)
 
     @classmethod
     def get_by_group_id(cls, group_id):
@@ -84,12 +92,3 @@ class GroupHasOneModelMixin(models.Model):
     @classmethod
     def get_for_update(cls, group_id):
         return cls.objects.select_for_update().get(group_id=group_id)
-
-
-
-
-
-
-
-
-
